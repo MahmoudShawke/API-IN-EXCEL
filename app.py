@@ -36,7 +36,7 @@ def insert():
 @app.route('/update',methods=["POST"])
 def update():
     df = pd.read_excel('testing.xlsx', usecols=["الترتيب", "الرواية", "المؤلف", "البلد"])
-    df.loc[df['الترتيب']=='110' ,'الترتيب']=150
+    df.loc[df['الترتيب']==110 ,'الترتيب']=150
     df.to_excel('testing.xlsx',index=False)
 
     return ['true']
