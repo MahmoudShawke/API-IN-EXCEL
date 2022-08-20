@@ -22,8 +22,7 @@ def get(id=0):
         return dataJson.encode('UTF-8').decode('unicode_escape')
     else:
         df = pd.read_excel('testing.xlsx', usecols=["الترتيب", "الرواية", "المؤلف", "البلد"])
-        df.set_index("الترتيب", inplace=True)
-        df = df.loc[[id]]
+        df = df.loc[df['الترتيب'] == id]
         dataJson = df.to_json(orient='records')
         return dataJson.encode('UTF-8').decode('unicode_escape')
 
